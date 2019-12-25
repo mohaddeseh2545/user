@@ -1,14 +1,17 @@
 import { AppAction } from "../store/state";
-import { usersAction } from "./actionType";
+import { usersActionTypes } from "./actionType";
 import { KnownAction } from "./model";
 
-export const AtabatHotelActions = {
+export const UserAction = {
    
-    toggleAtabatHotelDisplayModal: (name:string, lastName:string): AppAction<KnownAction> => (dispatch, getState) => {
-        dispatch({ type: usersAction.formSubmit, data:{name,lastName} });
+    formSubmitHandler: (name:string, lastName:string): AppAction<KnownAction> => (dispatch, getState) => {
+        dispatch({ type: usersActionTypes.formSubmit, data:{name,lastName} });
     },
 
 };
+
+
+
 
 
 

@@ -1,6 +1,12 @@
 import React from 'react';
+import { IApplicationState } from '../store/state';
+import { connect } from 'react-redux';
+import { UserAction } from '../action/action';
+import { IUser } from '../action/model';
 
-class Form extends React.Component<any,any>{
+
+type IProps = typeof UserAction & IUser
+class Form extends React.Component<IProps,any>{
     constructor(props:any) 
     {
       super(props)
@@ -13,6 +19,7 @@ class Form extends React.Component<any,any>{
         event.preventDefault();
         console.log('firstName: '+ this.state.firstName);
         console.log('lastName: '+ this.state.lastName);
+        this.props.formSubmitHandler(this.state.firstName, this.state.lastName)
 
     }
     changeHandlerName =(event:any)=>{
@@ -22,6 +29,7 @@ class Form extends React.Component<any,any>{
         this.setState({lastName: event.target.value})
     }
   render() {
+    console.log(this.props.User)
       return(
           <React.Fragment>
               <form onSubmit={this.sendData}>
@@ -38,5 +46,8 @@ class Form extends React.Component<any,any>{
   }   
 }
 
-  export default Form;
   
+  export default connect(
+    (state: IApplicationState) => state.user,
+    UserAction,
+)(Form);

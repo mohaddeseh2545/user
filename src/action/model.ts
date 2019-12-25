@@ -1,5 +1,5 @@
 import { Action } from "redux";
-import { usersAction } from "./actionType";
+import { usersActionTypes } from "./actionType";
 
 export interface IUser {
     User: {
@@ -13,7 +13,7 @@ export interface IUser {
 
 
 interface IformSubmit extends Action<string> {
-    type: usersAction.formSubmit;
+    type: usersActionTypes.formSubmit;
     data: {name:string; lastName:string}
 }
 

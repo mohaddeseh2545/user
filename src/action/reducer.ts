@@ -1,5 +1,5 @@
 import { Reducer } from "redux";
-import { usersAction } from "./actionType";
+import { usersActionTypes } from "./actionType";
 import { IUser, KnownAction } from "./model";
 
 const unloadedState: IUser = {
@@ -18,7 +18,7 @@ export const userReducer: Reducer<IUser, any> = (
     action: KnownAction,
 ) => {
     switch (action.type) {
-        case usersAction.formSubmit: {
+        case usersActionTypes.formSubmit: {
             return {
                 ...state,
                 User: {

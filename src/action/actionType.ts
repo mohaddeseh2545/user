@@ -1,3 +1,3 @@
-export enum usersAction {
+export enum usersActionTypes {
     formSubmit="sendUser"
 }
