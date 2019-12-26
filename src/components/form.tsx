@@ -33,11 +33,12 @@ class Form extends React.Component<IProps,any>{
       return(
           <React.Fragment>
               <form onSubmit={this.sendData}>
-                  <legend>فرم</legend>
+                  <legend>ایجاد کاربر</legend>
                     <label>نام</label>
                     <input type="text"  onChange={this.changeHandlerName} /><br />
                     <label> نام خانوادگی</label>
-                    <input type="text" onChange={this.changeHandlerLastName} />
+                    <input type="text" onChange={this.changeHandlerLastName} /><br />
+                 
                     <input type="submit" value="ثبت" />
               </form>
           </React.Fragment>
