@@ -1,4 +1,6 @@
 export enum BookActionTypes{
-    CreateBook="profileBook"
+    CreateBook="profileBook",
+    BookList="listBook",
+    BookCreateSuccess="BookCreateSuccess",
 
 }
