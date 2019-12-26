@@ -15,15 +15,15 @@ export const BookAction ={
         const res= await Axios.post('https://jsonbox.io/box_7cafe54ee82c7a1827bb/bookCollection',data)
     },
 
-    ListBook :(): AppAction<KnownAction> => async (dispatch, getState) => {
+    GetListBook :(): AppAction<KnownAction> => async (dispatch, getState) => {
         dispatch({ type: BookActionTypes.BookList });
         
         const res= await Axios.get('https://jsonbox.io/box_7cafe54ee82c7a1827bb/bookCollection')
         if(res.status === 200 && res.data){
             dispatch({ type: BookActionTypes.BookCreateSuccess,data: res.data});
-        
+            console.log(res.data)
         }else{
-            
+
         }
     }
   
