@@ -1,6 +1,6 @@
 .modal{
     width: 50%;
-    height: 130px;
+    height: auto;
     border: 1px solid #ccc;
     position: absolute;
     top: 20%;
@@ -17,4 +17,16 @@
     position: absolute;
     top: 0;
     left: 0;
+}
+div.header-modal{
+    margin: 0;
+}
+.header-modal{
+    background-color: burlywood;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 24px;
+}
+.footer-modal{
+    background-color: burlywood;
 }

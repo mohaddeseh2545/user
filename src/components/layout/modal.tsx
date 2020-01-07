@@ -6,7 +6,7 @@ class Modal extends React.Component<any, any>{
         super(props);
 
     }
- 
+
     render() {
         if (!this.props.toggle) {
             return null
@@ -15,8 +15,16 @@ class Modal extends React.Component<any, any>{
             <React.Fragment>
                 <div className="bg-modal"></div>
                 <div className="modal">
-                    <h1>Hi Modal</h1>
-                    <button onClick={() => this.setState({toggle : false})}>Close</button>
+                    <div className="header-modal"> 
+                        {this.props.title ? this.props.title : null}
+                    </div>
+                    <p>Hi Modal</p>
+                    <div className="footer-modal">
+                        <button onClick={this.props.onCancel}>Close</button>
+                        <button onClick={this.props.onOk}>Send</button>
+
+                    </div>
+                    
                 </div>
             </React.Fragment>
 

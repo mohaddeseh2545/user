@@ -39,7 +39,12 @@ class CreateBook extends React.Component<IProps,Istate>{
         }
         Create = (event:any) =>{
             event.preventDefault();
-            this.props.BookCreate(this.state.title,this.state.nameBook,this.state.author,this.state.date)
+            this.props.BookCreate(this.state.title,this.state.nameBook,this.state.author,this.state.date);
+            this.setState({toggle : false})
+
+        }
+        onCancel = () =>{
+            this.setState({toggle : false})
         }
         render(){
             return(
@@ -49,8 +54,14 @@ class CreateBook extends React.Component<IProps,Istate>{
                         <input type="text" name="nameBook" placeholder=" نام کتاب" onChange={this.changeNameBook} /><br />
                         <input type="text" name="author" placeholder="نویسنده" onChange={this.changeAuthor} /><br />
                         <input type="text" name="date" placeholder="تاریخ" onChange={this.changeDate} /><br />
-                        <input type="submit" value="درج اطلاعات" onClick={()=>this.setState({toggle : true})}/>
-                        <Modal toggle={this.state.toggle}  />
+                        <input type="submit" value="درج اطلاعات" />
+                        <button type="button" onClick={()=>this.setState({toggle : true})}> مشاهده اطلاعات </button>
+                        <Modal 
+                            toggle={this.state.toggle} 
+                            onCancel={this.onCancel} 
+                            onOk={this.Create}
+                            title="title" 
+                        />
                     </form>
                 </React.Fragment>
             )
