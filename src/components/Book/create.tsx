@@ -3,6 +3,7 @@ import { IApplicationState } from '../../store/state';
 import { connect } from 'react-redux';
 import { BookAction } from '../../action/Book/action';
 import { IBook } from '../../action/Book/model';
+import Modal from '../layout/modal';
 
 
 type IProps = typeof BookAction & IBook
@@ -10,7 +11,8 @@ interface Istate{
     title: string,
     nameBook:string,
     author:string,
-    date:string
+    date:string,
+    toggle:boolean,
 }
 class CreateBook extends React.Component<IProps,Istate>{
     constructor(props:any){
@@ -19,7 +21,8 @@ class CreateBook extends React.Component<IProps,Istate>{
             title:'',
             nameBook:'',
             author:'',
-            date:''
+            date:'',
+            toggle:false,
         }
         }
         changeTitle = (event:any) =>{
@@ -46,7 +49,8 @@ class CreateBook extends React.Component<IProps,Istate>{
                         <input type="text" name="nameBook" placeholder=" نام کتاب" onChange={this.changeNameBook} /><br />
                         <input type="text" name="author" placeholder="نویسنده" onChange={this.changeAuthor} /><br />
                         <input type="text" name="date" placeholder="تاریخ" onChange={this.changeDate} /><br />
-                        <input type="submit" value="درج اطلاعات" />
+                        <input type="submit" value="درج اطلاعات" onClick={()=>this.setState({toggle : true})}/>
+                        <Modal toggle={this.state.toggle}  />
                     </form>
                 </React.Fragment>
             )

@@ -8,6 +8,7 @@ type IProps = IBook & typeof BookAction ;
 class Book extends React.Component<IProps,any>{
     constructor(props:any){
         super(props);
+       
     }
     componentDidMount(){
         this.props.GetListBook();
