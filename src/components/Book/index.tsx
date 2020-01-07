@@ -17,10 +17,18 @@ class Book extends React.Component<IProps,any>{
         return(
             <React.Fragment>
                {
-                this.props.BookList.list.map( b => (<p>{b.title}</p>
+                    this.props.BookList.list.map( b => 
+                        <ul>
+                            <li>{b.title}</li>
+                            <li>{b.nameBook}</li>
+                            <li>{b.author}</li>
+                            <li>{b.date}</li>
+                        
+                        </ul>
+                       
+                                    
                     )
-                    
-                    )
+                   
                }
             </React.Fragment>
         )

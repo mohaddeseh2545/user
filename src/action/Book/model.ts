@@ -21,14 +21,18 @@ interface IBookList extends Action<string> {
     type: BookActionTypes.BookList;
     
 }
-interface IBookCreateSuccess extends Action<string> {
-    type: BookActionTypes.BookCreateSuccess;
+interface IBookListSuccess extends Action<string> {
+    type: BookActionTypes.BookListSuccess;
     data: any[]
+    
+}
+interface IBookListFail extends Action<string> {
+    type: BookActionTypes.BookListFail;
     
 }
 
 export type KnownAction =
     | ICreateBook
     | IBookList
-    | IBookCreateSuccess
-
+    | IBookListSuccess
+    | IBookListFail

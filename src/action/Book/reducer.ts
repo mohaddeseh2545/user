@@ -41,7 +41,7 @@ export const bookReducer: Reducer<IBook, any> = (
                 },
             } as IBook;
         }
-        case BookActionTypes.BookCreateSuccess: {
+        case BookActionTypes.BookListSuccess: {
             return {
                 ...state,
                 BookList: {
@@ -51,7 +51,16 @@ export const bookReducer: Reducer<IBook, any> = (
                 },
             } as IBook;
         }
-
+        case BookActionTypes.BookListFail: {
+            return {
+                ...state,
+                BookList: {
+                    ...state.BookList,
+                    loading:false,
+                
+                },
+            } as IBook;
+        }
 
     }
     return state;
