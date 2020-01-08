@@ -32,15 +32,16 @@ div.header-modal{
     text-align: left;
 }
 .modal-ok{
-    background-color: #7268A6;
+    background-color: #DBE0BB;
     border-radius: 3px;
-    border: 1px solid #7268A6;
+    border: 2px solid #DBE0BB;
     padding: 8px 16px;
-    color: #fff;
+    color: #000;
+    font-weight: bold;
     font-size: 14px;
     transition: all 300ms;
 }
 .modal-ok:hover{
     background-color: #fff;
-    color: #7268A6;
+    color: #DBE0BB;
 }
