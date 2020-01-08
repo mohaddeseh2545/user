@@ -21,7 +21,7 @@ class Modal extends React.Component<any, any>{
                     <p>Hi Modal</p>
                     <div className="footer-modal">
                         <button onClick={this.props.onCancel}>Close</button>
-                        <button onClick={this.props.onOk}>Send</button>
+                        <button onClick={this.props.onOk} className="modal-ok">Send</button>
 
                     </div>
                     

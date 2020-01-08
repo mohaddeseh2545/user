@@ -4,29 +4,43 @@
     border: 1px solid #ccc;
     position: absolute;
     top: 20%;
-    background-color: beige;
     left: 25%;
     border-radius: 5px;
-    overflow: hidden;
-    display: block;
+   z-index: 1001;
+   background-color: #fff;
 }
 .bg-modal{
     width: 100%;
     height: 100%;
-    background-color: blueviolet;
+    background-color: #7268A6;
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 1000;
 }
 div.header-modal{
     margin: 0;
 }
 .header-modal{
-    background-color: burlywood;
+    background-color: #DBE0BB;
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 24px;
 }
 .footer-modal{
-    background-color: burlywood;
+    padding: 10px 0;
+    text-align: left;
+}
+.modal-ok{
+    background-color: #7268A6;
+    border-radius: 3px;
+    border: 1px solid #7268A6;
+    padding: 8px 16px;
+    color: #fff;
+    font-size: 14px;
+    transition: all 300ms;
+}
+.modal-ok:hover{
+    background-color: #fff;
+    color: #7268A6;
 }
