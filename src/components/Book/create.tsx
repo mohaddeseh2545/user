@@ -61,7 +61,9 @@ class CreateBook extends React.Component<IProps,Istate>{
                             onCancel={this.onCancel} 
                             onOk={this.Create}
                             title="title" 
-                        />
+                        >
+                            <p>sdf</p>
+                            </Modal>
                     </form>
                 </React.Fragment>
             )

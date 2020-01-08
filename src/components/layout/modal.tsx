@@ -18,9 +18,10 @@ class Modal extends React.Component<any, any>{
                     <div className="header-modal"> 
                         {this.props.title ? this.props.title : null}
                     </div>
-                    <p>Hi Modal</p>
+                    
+                    {this.props.children}
                     <div className="footer-modal">
-                        <button onClick={this.props.onCancel}>Close</button>
+                        <button  onClick={this.props.onCancel}>Close</button>
                         <button onClick={this.props.onOk} className="modal-ok">Send</button>
 
                     </div>
