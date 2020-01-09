@@ -35,10 +35,10 @@ div.header-modal{
 .modal-ok{
 
     border-radius: 3px;
-    border: 2px solid #28a745;
+    border: 2px solid $btn_success;
     color:#fff;
-    background-color:#28a745;
-    border-color:#28a745;
+    background-color:$btn_success;
+    border-color:$btn_success;
     padding: 8px 16px;
     margin: 1px 10px;
     font-weight: 400;

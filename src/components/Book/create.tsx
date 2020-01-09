@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { BookAction } from '../../action/Book/action';
 import { IBook } from '../../action/Book/model';
 import Modal from '../layout/modal';
-
+import { Input} from 'antd';
+import FormItem from 'antd/lib/form/FormItem';
 
 type IProps = typeof BookAction & IBook
 interface Istate{
@@ -51,6 +52,9 @@ class CreateBook extends React.Component<IProps,Istate>{
             return(
                 <React.Fragment>
                     <form onSubmit={this.Create}>
+                        <FormItem>
+                        <Input type="text" name="title" placeholder="عنوان" onChange={this.changeTitle} />
+                        </FormItem>
                         <input type="text" name="title" placeholder="عنوان" onChange={this.changeTitle} /><br />
                         <input type="text" name="nameBook" placeholder=" نام کتاب" onChange={this.changeNameBook} /><br />
                         <input type="text" name="author" placeholder="نویسنده" onChange={this.changeAuthor} /><br />
