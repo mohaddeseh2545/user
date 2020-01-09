@@ -1,35 +1,24 @@
 .modal{
-    width: 50%;
-    height: auto;
+    width: 0%;
+    max-height: 0;
     border: 1px solid #ccc;
     position: absolute;
     top: 20%;
-    left: 25%;
+    left: 50%;
     border-radius: 5px;
-   z-index: 1001;
-   background-color: #fff;
-   animation-duration: 0.5s;
-   animation-name: openModal;
+    z-index: 1001;
+    background-color: #fff;
+    transition: all 200ms ease-in;
+    overflow: hidden;
+    box-shadow: -2px 3px 3px #ccc;
+    transform: translateX(-50%) translateY(-50%);
 }
-@keyframes openModal {
-    0% {
-      transform: scale(0.1);
-      opacity: 0;
-    }
-    
-    100% {
-      transform: scale(1);
-    }
-  }
-.bg-modal{
-    width: 100%;
-    height: 100%;
-    background-color: #626262C2;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1000;
+.modal.modalActive{
+    width: 40%;
+    max-height: 400px;
 }
+
+
 div.header-modal{
     margin: 0;
 }
@@ -44,16 +33,40 @@ div.header-modal{
     text-align: left;
 }
 .modal-ok{
-    background-color: #DBE0BB;
+
     border-radius: 3px;
-    border: 2px solid #DBE0BB;
+    border: 2px solid #28a745;
+    color:#fff;
+    background-color:#28a745;
+    border-color:#28a745;
     padding: 8px 16px;
-    color: #000;
-    font-weight: bold;
-    font-size: 14px;
-    transition: all 300ms;
+    margin: 1px 10px;
+    font-weight: 400;
+    font-size: 13px;
+    transition: all 200ms;
+
 }
 .modal-ok:hover{
-    background-color: #fff;
-    color: #DBE0BB;
+  
+    color:#fff;
+    background-color:#218838;
+    border-color:#1e7e34;
+}
+.modal-cancel{
+    color:#fff;
+    background-color:#dc3545;
+    border-color:#dc3545;
+   
+    border-radius: 3px;
+    border: 2px solid #dc3545;
+    padding: 8px 16px;
+    margin: 1px 0px;
+    font-weight: 400;
+    font-size: 13px;
+    transition: all 200ms;
+}
+.modal-cancel:hover{
+    color:#fff;
+background-color:#c82333;
+border-color:#bd2130;
 }

@@ -44,7 +44,8 @@ class CreateBook extends React.Component<IProps,Istate>{
 
         }
         onCancel = () =>{
-            this.setState({toggle : false})
+            {this.setState({toggle : false})}
+            // setTimeout(()=>{},100);
         }
         render(){
             return(
