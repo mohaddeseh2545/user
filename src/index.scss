@@ -1,6 +1,8 @@
 @import './style/color.scss';
 @import './style/modal.scss';
 @import './style/navBar.scss';
+@import './style/user.scss';
+@import './style/button.scss';
 // yarn add node-sass
 body {
   margin: 0;
@@ -20,4 +22,7 @@ code {
 ul , li{
   text-decoration: none;
   list-style: none;
+}
+a{
+  text-decoration: none;
 }
