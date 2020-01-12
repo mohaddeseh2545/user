@@ -1,5 +1,6 @@
 import { Action } from "redux";
 import { BookActionTypes } from "./actionType";
+import { UserActionTypes } from "../User/actionType";
 
 export interface IBook {
     CreateBook: {
@@ -23,16 +24,17 @@ interface IBookList extends Action<string> {
 }
 interface IBookListSuccess extends Action<string> {
     type: BookActionTypes.BookListSuccess;
-    data: any[]
-    
+      
 }
 interface IBookListFail extends Action<string> {
     type: BookActionTypes.BookListFail;
     
 }
 
+
 export type KnownAction =
     | ICreateBook
     | IBookList
     | IBookListSuccess
     | IBookListFail
+   

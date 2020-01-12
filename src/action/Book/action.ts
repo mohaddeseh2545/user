@@ -20,7 +20,7 @@ export const BookAction ={
         
         const res= await Axios.get('https://jsonbox.io/box_7cafe54ee82c7a1827bb/bookCollection')
         if(res.status === 200 && res.data){
-            dispatch({ type: BookActionTypes.BookListSuccess,data: res.data});
+            // dispatch({ type: BookActionTypes.BookListSuccess,data: res.data});
             console.log(res.data)
         }else{
 

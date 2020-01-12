@@ -46,8 +46,6 @@ export const bookReducer: Reducer<IBook, any> = (
                 ...state,
                 BookList: {
                     ...state.BookList,
-                    loading:false,
-                    list:action.data
                 },
             } as IBook;
         }
