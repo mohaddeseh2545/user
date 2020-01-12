@@ -8,7 +8,7 @@ interface IState{
     html_url:string;
 }
 type IProps = {
-    className:string;
+   
 };
 class User extends React.Component<IProps,IState>{
 
@@ -35,7 +35,7 @@ class User extends React.Component<IProps,IState>{
                         href={this.state.html_url}
                         
                     >                       
-                        More                       
+                      {this.props.children}              
                     </a>
                 </div>
             
