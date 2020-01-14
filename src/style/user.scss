@@ -1,3 +1,4 @@
+
 .card{
     border: 1px solid #ccc;
     padding: 10px;
@@ -5,6 +6,7 @@
     text-align: center;
     border-radius: 5px;
     width: 20%;
+    
 }
 .img-user{
     width: 100px;
@@ -17,9 +19,35 @@
 
 }
 .UserCreate{
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    width:30%;
+  text-align: center;
     border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 10px auto;
+    padding-bottom: 10px;
+   box-shadow: 3px 2px 2px #f0efef;
+}
+.bg-legend{
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.UserCreate input[type="text"]{
+    width: 40%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+.UserCreate input[type="submit"]{
+    width: 15%;
+    color:#fff;
+background-color:#28a745;
+border-color:#28a745;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding:10px;
+    margin-bottom: 10px;
+    font-weight: 500;
 }

@@ -6,5 +6,7 @@ export enum UserActionTypes{
 
     GetUserFetch = "@@User/GetUserFetch",
     GetUserFetchSuccess = "@@User/GetUserFetchSuccess",
-    GetUserFetchFail = "@@User/GetUserFetchFail"
+    GetUserFetchFail = "@@User/GetUserFetchFail",
+
+    onResetFormModal="@@User/onResetFormModal",
 }

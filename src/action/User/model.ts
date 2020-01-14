@@ -2,8 +2,11 @@ import {Action} from "redux";
 import {UserActionTypes} from './actionType';
 
 export interface IUserState{
+   
     CreateUser: {
         loading: boolean;
+        open: boolean;
+
     }
     GetUserFetch: {
         loading:boolean;

@@ -1,8 +1,8 @@
-import { userReducer } from "../action/reducer";
+import { UserReducer } from "../action/User/reducer";
 import {bookReducer} from '../action/Book/reducer';
 
 export const reducers = {
     
-    user: userReducer,
+    user: UserReducer,
     book: bookReducer,
 };

@@ -4,7 +4,7 @@ import {KnownAction} from '../User/model';
 import Axios from "axios";
 
 export const UserAction = {
-     CreateUser : (code:number,firstName:string,lastName:string,phone:string,address:string) : AppAction<KnownAction> => async (dispatch, getState) =>{
+     CreateUser : (code:string,firstName:string,lastName:string,phone:string,address:string) : AppAction<KnownAction> => async (dispatch, getState) =>{
         dispatch({ type : UserActionTypes.CreateUser});
         const data ={
             code,

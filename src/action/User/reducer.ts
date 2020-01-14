@@ -3,8 +3,10 @@ import {UserActionTypes} from './actionType';
 import {IUserState , KnownAction} from './model';
 
 const unloadedState : IUserState = {
+   
     CreateUser: {
         loading: false,
+        open:false,
     },
     GetUserFetch: {
         loading:false,
@@ -19,6 +21,7 @@ export const UserReducer: Reducer<IUserState> = (state: IUserState = unloadedSta
                 CreateUser :{
                     ...state.CreateUser,
                     loading: true,
+                    open:true,
                 }
 
             }as IUserState
@@ -29,7 +32,8 @@ export const UserReducer: Reducer<IUserState> = (state: IUserState = unloadedSta
                 ...state,
                 CreateUser :{
                     ...state.CreateUser,
-                    loading: false
+                    loading: false,
+                    
                 }
 
             }as IUserState
