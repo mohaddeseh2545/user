@@ -1,12 +1,17 @@
 
 .card{
     border: 1px solid #ccc;
+    background-color: #0058ff08;
     padding: 10px;
     margin: 10px;
     text-align: center;
     border-radius: 5px;
     width: 20%;
-    
+    display: inline-block;
+  
+}
+.card h3{
+    display: inline-block;
 }
 .img-user{
     width: 100px;
@@ -16,7 +21,7 @@
 
 .card a{
     font-size: 14px;
-
+    
 }
 .UserCreate{
     width:30%;
@@ -26,6 +31,7 @@
     margin: 10px auto;
     padding-bottom: 10px;
    box-shadow: 3px 2px 2px #f0efef;
+   
 }
 .bg-legend{
     background-color: #007bff;

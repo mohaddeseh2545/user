@@ -14,11 +14,11 @@ class User extends React.Component<IProps,any>{
         return(
            
                 <div className="card">
-                    <h2>{this.props.user.code}</h2>
-                    <h3>{this.props.user.firstname}</h3>
-                    <h3>{this.props.user.lastName}</h3>
-                    <h3>{this.props.user.phone}</h3>
-                    <h3>{this.props.user.address}</h3>
+                    <label>کد ملی</label><h3>{this.props.user.code}</h3><br/>
+                    <label>نام </label><h3>{this.props.user.firstName}</h3><br/>
+                    <label>نام خانوادگی </label><h3>{this.props.user.lastName}</h3><br/>
+                    <label> تلفن </label><h3>{this.props.user.phone}</h3><br/>
+                    <label> آدرس </label><h3>{this.props.user.address}</h3>
 
                 </div>
             
