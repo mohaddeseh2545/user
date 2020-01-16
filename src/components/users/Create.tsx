@@ -5,8 +5,15 @@ import React from 'react';
 import {IUsers} from './Index';
 import Axios from 'axios';
  //type IProps = typeof UserAction & IUserState ;
+ 
 interface IState{
-    user: IUsers | null
+    user: IUsers | null,
+    errorName: string,
+    errorLastName: string,
+    errorCode: string,
+    errorAddress: string,
+    errorPhone: string,
+
 }
 class Create extends React.Component<any,IState>{
 
@@ -14,17 +21,19 @@ class Create extends React.Component<any,IState>{
         super(props);
         this.state={
             user:null,
+           errorName:"نام را وارد کنید",
+           errorLastName: "نام خانوادگی را وارد کنید",
+           errorCode: "کد ملی را وارد کنید",
+           errorAddress: "آدرس را وارد کنید",
+           errorPhone: "تلفن را وارد کنید",
         }
     }
      CreateUser=()=>{
-       const res =  Axios.post('https://jsonbox.io/box_7cafe54ee82c7a1827bb/userCollection',this.state.user)
-       console.log(this.state.user)
+        
+     const res =  Axios.post('https://jsonbox.io/box_7cafe54ee82c7a1827bb/userCollection',this.state.user)
+            
     }
-    // componentDidUpdate(prevProps:IProps){
-    //     // if(this.props.onResetForm && !prevProps.onResetForm ){
-    //     //     this.onReset();
-    //     // }
-    // }
+ 
     private onReset =()=>{
         this.setState({user :null});
     
@@ -33,8 +42,11 @@ class Create extends React.Component<any,IState>{
         
         e.preventDefault();
         this.CreateUser();
-       this.onReset();
+        this.onReset();
     }
+    // validationForm=(name,value)=>{
+        
+    // }
     onChangeHandler=(e:any)=>{
         let user: IUsers = {
             code:'',
@@ -62,7 +74,10 @@ class Create extends React.Component<any,IState>{
                         placeholder="کد ملی" 
                         value={this.state.user ?this.state.user.code : ''}
                         onChange={this.onChangeHandler}
+                       
                     /> <br />
+                    {this.state.user && !this.state.user.code && <div> {this.state.errorCode} </div>}
+                   
                     <input 
                         type="text" 
                         name="firstName" 
