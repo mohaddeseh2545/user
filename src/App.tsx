@@ -5,6 +5,7 @@ import Users from './components/users/Users';
 import Create from './components/users/Create';
 import Index from './components/users/Index';
 import Slider from './components/slider/Slider';
+import Axios from 'axios';
 
 const fakeList = [
   { id:0,name:'ali',family:'hasani'},
@@ -19,13 +20,31 @@ const fakeList = [
 type  IProps ={
 
 };
-class App extends React.Component <IProps,any> {
+interface IUsers{
+  [key: string]: any,
+      code:string,
+      firstName:string,
+      lastName:string,
+      address:string,
+      phone:string
+}
+interface IState{
+  users:IUsers[]
+}
+class App extends React.Component <IProps,IState> {
 
   constructor(props:IProps){
     super(props);
+   this.state={
+     users:[]
+   }
   
   }
  
+  async componentDidMount(){
+    const res = await Axios.get('https://jsonbox.io/box_7cafe54ee82c7a1827bb/userCollection');
+    this.setState({users : res.data});
+  }
   render(){
     return (
       <div className="App">
@@ -33,7 +52,7 @@ class App extends React.Component <IProps,any> {
         <div className="container">
           
           <Create/>
-          <Slider fakeList={fakeList} />
+          <Slider  users={this.state.users} />
           {/* <Index  /> */}
           {/* <button onClick={() => alert('open modal')}>Open Modal</button> */}
           <Modal />

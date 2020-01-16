@@ -1,13 +1,16 @@
 import React from 'react';
+import Axios from 'axios';
 type IProps = {
-    fakeList: any[]
+    // fakeList: any[],
+    users:any[]
 }
-interface IPerson {name:string;family:string;id:number;} 
+interface IPerson {firstName:string;lastName:string;_id:number;} 
 
 interface IState{
     step: number;
     person:IPerson | null;
     active:boolean;
+   
 }
 class Slider extends React.Component<IProps, IState>{
     constructor(props: IProps) {
@@ -18,6 +21,7 @@ class Slider extends React.Component<IProps, IState>{
            active:false,
         }
     }
+    
     handlerBtn =(step:number)=>{
         // if(step >= 0){
            this.setState({ step });
@@ -35,7 +39,7 @@ class Slider extends React.Component<IProps, IState>{
                     <button 
                         className="rightBtn" 
                         onClick={()=>this.handlerBtn(this.state.step + 1)}
-                        disabled={this.state.step > (this.props.fakeList.length - 5) ? true  : false}
+                        disabled={this.state.step > (this.props.users.length - 5) ? true  : false}
                     >
                         
                         <span className="fa fa-angle-right"></span>
@@ -44,10 +48,10 @@ class Slider extends React.Component<IProps, IState>{
                     <div className="content"
                         style={ this.state.step > 0 ? {right: `${(this.state.step * -1)* 160}px`} : {right:`30px`}}
                     >
-                        {this.props.fakeList.map((list,index) => {
+                        {this.props.users.map((list,index) => {
                             let isActive = false;
                             if(this.state.active && this.state.person) {
-                                if(this.state.person.id === list.id){
+                                if(this.state.person._id === list._id){
                                     isActive = true;
                                 }
                             }
@@ -57,10 +61,10 @@ class Slider extends React.Component<IProps, IState>{
                                 className="cardSilder"
                                 style={{backgroundColor : 
                                     isActive  ? 'pink' : '#ccc'} }
-                                 key={list.id} 
+                                 key={list._id} 
                                  onClick={()=>this.showData(list)}>
-                                <p>{list.name}</p>
-                                <p>{list.family}</p>
+                                <p>{list.firstName}</p>
+                                <p>{list.lastName}</p>
                             </div>
                             )
                         } 
@@ -79,7 +83,7 @@ class Slider extends React.Component<IProps, IState>{
 
                 </div>
                 {this.state.person ? 
-                <div>{this.state.person.name}</div>
+                <div>{this.state.person.firstName}</div>
                 : null }
             </React.Fragment>
             
