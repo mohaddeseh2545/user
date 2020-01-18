@@ -68,6 +68,7 @@ class Create extends React.Component<any,IState>{
             <React.Fragment>
                 <form className="UserCreate" onSubmit={this.sendData}>
                     <legend className="bg-legend">ایجاد کاربر</legend>
+                    <label>کد ملی</label><br />
                     <input 
                         type="text" 
                         name="code" 
