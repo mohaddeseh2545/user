@@ -47,10 +47,15 @@ class Create extends React.Component<any,IState>{
     
     }
     private sendData =(e : any)=>{
-        
         e.preventDefault();
-        this.CreateUser();
-        this.onReset();
+        if(this.state.user){
+          
+            this.CreateUser();
+            this.onReset();
+        }else{
+            alert('no exist data in form')
+        }
+     
     }
     validationForm=(name:string,value:string)=>{
         let isValid = true;
