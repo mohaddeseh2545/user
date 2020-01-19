@@ -38,14 +38,17 @@
     text-align: right;
     margin-bottom: 14px;
     margin-top: 15px;
+    font-size: 14px;
+    display: inline-block;
 }
 
 .userCreateContent{
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    justify-content: space-evenly;
-    padding: 15px 40px;
+    // display: flex;
+    // flex-direction: column;
+    // justify-items: center;
+    // justify-content: space-evenly;
+    // padding: 15px 40px;
+    margin: 0 auto;
 }
 
 
@@ -73,15 +76,17 @@
     border-color: rgb(223, 228, 234);
 }
 .UserCreate input[type="submit"]{
-    width: 15%;
+   
     color:#fff;
-background-color:#28a745;
-border-color:#28a745;
+    background-color:#28a745;
+    border-color:#28a745;
     border: 1px solid #ccc;
     border-radius: 5px;
-    padding:10px;
-    margin-bottom: 10px;
+    padding:10px 25px;
+    margin: 10px;
     font-weight: 500;
+    font-size: 16px;
+    font-family: "Shabnam";
 }
 .showError{
     text-align:right;

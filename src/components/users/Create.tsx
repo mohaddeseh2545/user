@@ -174,11 +174,14 @@ class Create extends React.Component<any,IState>{
                      <div className="showError"> 
                         {this.state.validation.address.msg} 
                      </div>}
-
+                    
+                    <div style={{margin:'0 auto'}}>
                     <input 
                         type="submit" 
-                        value="Send" />
+                        value="ارسال" />
                     </div> 
+                    </div>
+                   
                     
                 </form>
             </React.Fragment>
