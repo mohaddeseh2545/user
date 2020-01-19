@@ -4,16 +4,21 @@ import React from 'react';
 // import { IApplicationState } from '../../store/state';
 import {IUsers} from './Index';
 import Axios from 'axios';
+import FormItem from 'antd/lib/form/FormItem';
  //type IProps = typeof UserAction & IUserState ;
  
 interface IState{
     user: IUsers | null,
-    errorName: string,
-    errorLastName: string,
-    errorCode: string,
-    errorAddress: string,
-    errorPhone: string,
+    
+    validation: {
+        [key:string]:any;
+        name:{isValid: boolean; touch:boolean,msg:string};
+        lastName:{isValid: boolean; touch:boolean,msg:string};
+        code:{isValid: boolean; touch:boolean,msg:string};
+        address:{isValid: boolean; touch:boolean,msg:string};
+        phone:{isValid: boolean; touch:boolean,msg:string};
 
+    }
 }
 class Create extends React.Component<any,IState>{
 
@@ -21,11 +26,14 @@ class Create extends React.Component<any,IState>{
         super(props);
         this.state={
             user:null,
-           errorName:"نام را وارد کنید",
-           errorLastName: "نام خانوادگی را وارد کنید",
-           errorCode: "کد ملی را وارد کنید",
-           errorAddress: "آدرس را وارد کنید",
-           errorPhone: "تلفن را وارد کنید",
+      
+           validation:{
+               name:{isValid:false, touch:false,msg:"نام را وارد کنید"},
+               lastName:{isValid:false, touch:false,msg:"نام خاوادگی را وارد کنید"},
+               code:{isValid:false, touch:false,msg:"کدملی را وارد کنید"},
+               address:{isValid:false, touch:false,msg:"آدرس را وارد کنید"},
+               phone:{isValid:false, touch:false,msg:"تلفن همراه را وارد کنید"},
+           }
         }
     }
      CreateUser=()=>{
@@ -44,22 +52,39 @@ class Create extends React.Component<any,IState>{
         this.CreateUser();
         this.onReset();
     }
-    // validationForm=(name,value)=>{
-        
-    // }
+    validationForm=(name:string,value:string)=>{
+        let isValid = true;
+        let msg: string = this.state.validation[name] ? this.state.validation[name].msg : ""
+        if(value.trim().length === 0 ){
+            isValid =false;
+        }
+        this.setState({
+            // ...this.state,
+            validation: {
+                ...this.state.validation,
+                [name]: {
+                    touch:true,
+                    isValid, msg
+                }
+            }
+        })
+    }
+    
     onChangeHandler=(e:any)=>{
         let user: IUsers = {
             code:'',
             firstName:'',
             lastName:'',
             address:'',
-            phone:''
+            phone:'',
+
         }
         if(this.state.user) {
             user = this.state.user;
         }
         user[e.target.name] = e.target.value
         this.setState({user})
+        this.validationForm(e.target.name, e.target.value)
 
     }
     render(){
@@ -67,51 +92,89 @@ class Create extends React.Component<any,IState>{
         return(
             <React.Fragment>
                 <form className="UserCreate" onSubmit={this.sendData}>
-                    <legend className="bg-legend">ایجاد کاربر</legend>
-                    <label>کد ملی</label><br />
+                    <legend className="bg-legend">ایجاد کاربر</legend>   
+
+                    <div className="userCreateContent">
+                    <label>کد ملی</label><br />                   
                     <input 
                         type="text" 
                         name="code" 
-                        placeholder="کد ملی" 
                         value={this.state.user ?this.state.user.code : ''}
                         onChange={this.onChangeHandler}
-                       
+                      
                     /> <br />
-                    {this.state.user && !this.state.user.code && <div> {this.state.errorCode} </div>}
+
+                    {
+                     !this.state.validation.code.isValid &&
+                     this.state.validation.code.touch && 
+                      <div className="showError"> 
+                        {this.state.validation.code.msg} 
+                      </div>
+                    }
                    
+                   <label>نام</label>
                     <input 
                         type="text" 
                         name="firstName" 
-                        placeholder="نام" 
                         value={this.state.user ? this.state.user.firstName : ''}
                         onChange={this.onChangeHandler}
                     /><br />
-                       
+                    {
+                        !this.state.validation.name.isValid && 
+                         this.state.validation.name.touch && 
+                        <div className="showError"> 
+                         {this.state.validation.name.msg} 
+                        </div>
+                    }
+
+                    <label>نام خانوادگی</label> 
                     <input 
                         type="text" 
                         name="lastName" 
-                        placeholder="نام خانوادگی" 
                         value={this.state.user ? this.state.user.lastName : ''}
                         onChange={this.onChangeHandler}
                     /><br />
+                    {
+                        !this.state.validation.lastName.isValid && 
+                         this.state.validation.lastName.touch && 
+                        <div className="showError"> 
+                        {this.state.validation.lastName.msg} </div>
+                    }
 
+                    <label>تلفن همراه</label>
                     <input 
                         type="text" 
                         name="phone" 
-                        placeholder="تلفن" 
                         value={this.state.user ? this.state.user.phone : ''}
                         onChange={this.onChangeHandler}
                     /><br />
+                    {
+                        
+                        !this.state.validation.phone.isValid &&
+                         this.state.validation.phone.touch && 
+                        <div className="showError"> 
+                            {this.state.validation.phone.msg} 
+                        </div>}
+
+                    <label>آدرس</label>
                     <input 
                         type="text" 
                         name="address" 
-                        placeholder="آدرس"
                         value={this.state.user ? this.state.user.address : ''}
                         onChange={this.onChangeHandler}
                     /><br />
+                     {
+                     this.state.validation.address.touch && 
+                     !this.state.validation.address.isValid && 
+                     <div className="showError"> 
+                        {this.state.validation.address.msg} 
+                     </div>}
+
                     <input 
                         type="submit" 
                         value="Send" />
+                    </div> 
+                    
                 </form>
             </React.Fragment>
         )

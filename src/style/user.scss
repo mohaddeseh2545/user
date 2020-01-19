@@ -35,19 +35,42 @@
 }
 .UserCreate label{
     color: rgb(164, 176, 190);
+    text-align: right;
+    margin-bottom: 14px;
+    margin-top: 15px;
 }
+
+.userCreateContent{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: space-evenly;
+    padding: 15px 40px;
+}
+
+
 .bg-legend{
     background-color: #007bff;
     color: #fff;
-    padding: 10px;
+    padding: 10px 40px;
     margin-bottom: 10px;
+    text-align: right;
 }
 .UserCreate input[type="text"]{
-    width: 40%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    width: 50%;
+    border-radius: 8px;
+    padding: 0.75em;
+    transition: all 0.25s ease 0s;
     margin-bottom: 10px;
+    color: rgb(47, 53, 66);
+    background-color: rgb(241, 242, 246);
+    border: 1px solid rgb(241, 242, 246);
+}
+.UserCreate input[type="text"]:focus{
+    background-color: rgb(223, 228, 234);
+    border-color: rgb(223, 228, 234);
 }
 .UserCreate input[type="submit"]{
     width: 15%;
@@ -59,4 +82,9 @@ border-color:#28a745;
     padding:10px;
     margin-bottom: 10px;
     font-weight: 500;
+}
+.showError{
+    text-align:right;
+    color:#dc3545;
+    font-size:13px;
 }
