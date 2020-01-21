@@ -53,7 +53,7 @@ class Create extends React.Component<any,IState>{
             this.CreateUser();
             this.onReset();
         }else{
-            alert('no exist data in form')
+            alert('فیلدهای فرم خالی است')
         }
      
     }
@@ -117,7 +117,7 @@ class Create extends React.Component<any,IState>{
                       </div>
                     }
                    
-                   <label>نام</label>
+                   <label>نام</label><br />
                     <input 
                         type="text" 
                         name="firstName" 
@@ -132,7 +132,7 @@ class Create extends React.Component<any,IState>{
                         </div>
                     }
 
-                    <label>نام خانوادگی</label> 
+                    <label>نام خانوادگی</label> <br />
                     <input 
                         type="text" 
                         name="lastName" 
@@ -146,7 +146,7 @@ class Create extends React.Component<any,IState>{
                         {this.state.validation.lastName.msg} </div>
                     }
 
-                    <label>تلفن همراه</label>
+                    <label>تلفن همراه</label><br />
                     <input 
                         type="text" 
                         name="phone" 
@@ -161,7 +161,7 @@ class Create extends React.Component<any,IState>{
                             {this.state.validation.phone.msg} 
                         </div>}
 
-                    <label>آدرس</label>
+                    <label>آدرس</label><br />
                     <input 
                         type="text" 
                         name="address" 
