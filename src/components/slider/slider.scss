@@ -7,6 +7,9 @@
      overflow: hidden;
     display: flex;
     justify-content: space-between;
+    border-radius: 8px;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #fdfeff 100%);
+
 }
 .content{
     width:max-content;
@@ -19,25 +22,27 @@
 .cardSilder{
     padding: 20px 10px;
     margin: 27px 10px;
-    border: 1px solid #ccc;
-    background-color: #ccc;
+    border: 1px solid #629ee3;
+    // background-color: #ccc;
     border-radius: 5px;
     width: 100px;
     height: 100px;
     text-align: center;
+    background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
 }
+
 .leftBtn{
     width: 20px;
     height: 200px;
-    background-color: blue;
+    background-color:#007bff;
     position: relative;
   
     color: #fff;
-    border: 1px solid blue;
+    border: 1px solid #007bff;
     z-index: 100;
 }
 .leftBtn:hover{
-    background-color:#8686c6;
+    background-color:#187dea;
 }
 .leftBtn:hover span{
     color:blue;
@@ -49,14 +54,14 @@
     position: relative;
     width: 20px;
     height: 200px;
-    background-color: blue;
+    background-color: #007bff;
     color: #fff;
-    border: 1px solid blue;
+    border: 1px solid #007bff;
     z-index: 100;
 
 }
 .rightBtn:hover{
-    background-color: #8686c6;
+    background-color: #187dea;
 
 }
 .leftBtn span{
@@ -76,4 +81,18 @@
     cursor: pointer;
     transition: all 300ms;
 
+  }
+  .showDataSlider{
+      margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #629ee3;
+    // background-color: #ccc;
+    border-radius: 5px;
+    width: 170px;
+    height: 45px;
+    text-align: center;
+    background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+  }
+  .showDataSlider p{
+      margin:0;
   }
