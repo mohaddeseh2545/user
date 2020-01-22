@@ -5,7 +5,7 @@ import Axios from "axios";
 import { IUsers } from '../../components/users/Index';
 
 export const UserAction = {
-     CreateUser : (data:IUsers) : AppAction<KnownAction> => async (dispatch, getState) =>{
+     sendCreateUser : (data:IUsers) : AppAction<KnownAction> => async (dispatch, getState) =>{
         dispatch({ type : UserActionTypes.CreateUser});
         
         const res = await Axios.post('https://jsonbox.io/box_7cafe54ee82c7a1827bb/userCollection',data);
@@ -17,11 +17,15 @@ export const UserAction = {
         }
      },
 
-     GetUser:(): AppAction<KnownAction> => async (dispatch , getState) =>{
+     toggleUserCreateModal : (open:boolean): AppAction<KnownAction> => async (dispatch, getState) =>{
+         console.log('open',open);
+         dispatch({type: UserActionTypes.CreateUserOnModal, open});
+     },
+     GetUserData:(): AppAction<KnownAction> => async (dispatch , getState) =>{
          dispatch({type: UserActionTypes.GetUserFetch});
          const res = await Axios.get('https://jsonbox.io/box_7cafe54ee82c7a1827bb/userCollection');
          if(res.data && res.status === 200){
-             dispatch({type: UserActionTypes.GetUserFetchSuccess,list: res.data});
+             dispatch({type: UserActionTypes.GetUserFetchSuccess, list: res.data});
          }else {
              dispatch({type: UserActionTypes.GetUserFetchFail});
          }

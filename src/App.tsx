@@ -32,28 +32,32 @@ class App extends React.Component <IProps> {
 
   constructor(props:any){
     super(props);
- 
   }
  private onCancel=()=>{
-   this.setState({toggle:false})
+  //  this.setState({toggle:false})
+  //  this.props.CreateUser.openModal;
+  this.props.toggleUserCreateModal(false);
  }
  private onOk =()=>{
    alert('send');
-   this.setState({toggle:false})
+  //  this.props.CreateUser.openModal;
+
+  //  this.setState({toggle:false})
 
  }
   async componentDidMount(){
-    this.props.GetUser();
+    this.props.GetUserData();
    
   }
   render(){
+    console.log(this.props.CreateUser)
     return (
       <div className="App">
         <NavBar title="Navbar" icon="fa fa-github" />
         <div className="container">
           <div style={{margin:'10px',textAlign:'center'}}>
           <button 
-            onClick={()=>{this.setState({toggle:true})}} 
+            onClick={()=>this.props.toggleUserCreateModal(true)}
           >
             ایجاد کاربر
           </button>
@@ -62,7 +66,7 @@ class App extends React.Component <IProps> {
           <Modal
             onOk={this.onOk}
             onCancel={this.onCancel}
-            toggle={this.props.userList.loading}
+            toggle={this.props.CreateUser.openModal}
             title="ایجاد کاربر"
           >
            

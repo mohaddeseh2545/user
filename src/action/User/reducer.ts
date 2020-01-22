@@ -6,7 +6,7 @@ const unloadedState : IUserState = {
    
     CreateUser: {
         loading: false,
-        open:false,
+        openModal:false,
     },
     userList: {
         loading:false,
@@ -15,13 +15,25 @@ const unloadedState : IUserState = {
 }
 export const UserReducer: Reducer<IUserState> = (state: IUserState = unloadedState, action: KnownAction) => {
     switch(action.type){
+        case UserActionTypes.CreateUserOnModal:{
+            return{
+                ...state,
+                CreateUser :{
+                    ...state.CreateUser,
+                    loading: true,
+                    openModal:action.open,
+                }
+
+            }as IUserState
+             
+        }
         case UserActionTypes.CreateUser:{
             return{
                 ...state,
                 CreateUser :{
                     ...state.CreateUser,
                     loading: true,
-                    open:true,
+                    openModal:true,
                 }
 
             }as IUserState
@@ -33,7 +45,7 @@ export const UserReducer: Reducer<IUserState> = (state: IUserState = unloadedSta
                 CreateUser :{
                     ...state.CreateUser,
                     loading: false,
-                    
+                    openModal:false,
                 }
 
             }as IUserState

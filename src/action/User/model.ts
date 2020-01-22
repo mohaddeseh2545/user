@@ -5,7 +5,7 @@ export interface IUserState{
    
     CreateUser: {
         loading: boolean;
-        open: boolean;
+        openModal: boolean;
 
     }
     userList: {
@@ -13,7 +13,10 @@ export interface IUserState{
         list:any[];
     }
 }
-
+interface IUserCreateModal extends Action<string>{
+    type: UserActionTypes.CreateUserOnModal;
+    open:boolean;
+}
 interface ICreateUser extends Action<string>{
     type: UserActionTypes.CreateUser;
 }
@@ -39,6 +42,7 @@ interface IGetUserFetchFail extends Action<string>{
     
 }
 export type KnownAction =
+| IUserCreateModal
 | ICreateUser
 | ICreateUserSuccess
 | ICreateUserFail

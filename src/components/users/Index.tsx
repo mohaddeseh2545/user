@@ -2,8 +2,7 @@ import React from 'react';
 import { UserAction } from '../../action/User/action';
 import { IUserState } from '../../action/User/model';
 import Slider from '../slider/Slider';
-import { IApplicationState } from '../../store/state';
-import { connect } from 'react-redux';
+
 
 type IProps= typeof UserAction & IUserState;
 
@@ -23,7 +22,7 @@ class Index extends React.Component<IProps>{
     }
     async componentDidMount (){
         
-        this.props.GetUser();
+        this.props.GetUserData();
       }
     render(){
         return(

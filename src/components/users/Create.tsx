@@ -80,7 +80,7 @@ class Create extends React.Component<IProps,IState>{
     }
      CreateUser=()=>{
         if(this.state.user){
-            this.props.CreateUser(this.state.user)
+            this.props.sendCreateUser(this.state.user)
 
         }
             
@@ -137,7 +137,6 @@ class Create extends React.Component<IProps,IState>{
 
     }
     render(){
-        console.log(this.state)
         return(
             <React.Fragment>
                 <form className="UserCreate" onSubmit={this.sendData}>
