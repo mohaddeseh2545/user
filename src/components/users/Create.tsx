@@ -1,26 +1,48 @@
 import React from 'react';
-// import {UserAction} from '../../action/User/action';
-// import {connect} from 'react-redux';
-// import { IApplicationState } from '../../store/state';
+import {UserAction} from '../../action/User/action';
+import {connect} from 'react-redux';
+import { IApplicationState} from '../../store/state';
+import {IUserState} from '../../action/User/model';
 import {IUsers} from './Index';
-import Axios from 'axios';
-import FormItem from 'antd/lib/form/FormItem';
- //type IProps = typeof UserAction & IUserState ;
+
+ 
+
+type IProps = typeof UserAction & IUserState ;
  
 interface IState{
     user: IUsers | null,
     
     validation: {
         [key:string]:any;
-        name:{isValid: boolean; touch:boolean,msg:string};
-        lastName:{isValid: boolean; touch:boolean,msg:string};
-        code:{isValid: boolean; touch:boolean,msg:string};
-        address:{isValid: boolean; touch:boolean,msg:string};
-        phone:{isValid: boolean; touch:boolean,msg:string};
+        name:{
+            isValid: boolean; 
+            touch:boolean,
+            msg:string
+        };
+        lastName:{
+            isValid: boolean; 
+            touch:boolean,
+            msg:string
+        };
+        code:{
+            isValid: boolean; 
+            touch:boolean,
+            msg:string
+        };
+        address:{
+            isValid: boolean;
+             touch:boolean,
+            msg:string
+        };
+        phone:{
+            isValid: boolean;
+             touch:boolean,
+            msg:string
+        };
 
     }
 }
-class Create extends React.Component<any,IState>{
+class Create extends React.Component<IProps,IState>{
 
     constructor(props:any){
         super(props);
@@ -28,17 +50,39 @@ class Create extends React.Component<any,IState>{
             user:null,
       
            validation:{
-               name:{isValid:false, touch:false,msg:"نام را وارد کنید"},
-               lastName:{isValid:false, touch:false,msg:"نام خاوادگی را وارد کنید"},
-               code:{isValid:false, touch:false,msg:"کدملی را وارد کنید"},
-               address:{isValid:false, touch:false,msg:"آدرس را وارد کنید"},
-               phone:{isValid:false, touch:false,msg:"تلفن همراه را وارد کنید"},
+               name:{
+                isValid:false, 
+                touch:false,
+                msg:"نام را وارد کنید"
+            },
+               lastName:{
+                isValid:false, 
+                touch:false,
+                msg:"نام خاوادگی را وارد کنید"
+            },
+               code:{
+                isValid:false, 
+                touch:false,
+                msg:"کدملی را وارد کنید"
+            },
+               address:{
+                isValid:false, 
+                touch:false,
+                msg:"آدرس را وارد کنید"
+            },
+               phone:{
+                isValid:false, 
+                touch:false,
+                msg:"تلفن همراه را وارد کنید"
+            },
            }
         }
     }
      CreateUser=()=>{
-        
-     const res =  Axios.post('https://jsonbox.io/box_7cafe54ee82c7a1827bb/userCollection',this.state.user)
+        if(this.state.user){
+            this.props.CreateUser(this.state.user)
+
+        }
             
     }
  
@@ -188,8 +232,8 @@ class Create extends React.Component<any,IState>{
         )
     }
 }
-export default Create;
-// export default connect(
-//     (state: IApplicationState) => state.user,
-//     UserAction,
-// )(UserCreate);
+// export default Create;
+export default connect(
+    (state: IApplicationState) => state.user,
+    UserAction,
+)(Create);

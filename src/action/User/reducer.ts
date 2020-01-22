@@ -8,7 +8,7 @@ const unloadedState : IUserState = {
         loading: false,
         open:false,
     },
-    GetUserFetch: {
+    userList: {
         loading:false,
         list:[],
     }
@@ -53,8 +53,8 @@ export const UserReducer: Reducer<IUserState> = (state: IUserState = unloadedSta
         case UserActionTypes.GetUserFetch:{
             return{
                 ...state,
-                GetUserFetch: {
-                    ...state.GetUserFetch,
+                userList: {
+                    ...state.userList,
                     loading:true,
                 }
 
@@ -64,8 +64,8 @@ export const UserReducer: Reducer<IUserState> = (state: IUserState = unloadedSta
         case UserActionTypes.GetUserFetchSuccess:{
             return{
                 ...state,
-                GetUserFetch: {
-                    ...state.GetUserFetch,
+                userList: {
+                    ...state.userList,
                     loading:false,
                     list:action.list,
                 }
@@ -76,8 +76,8 @@ export const UserReducer: Reducer<IUserState> = (state: IUserState = unloadedSta
         case UserActionTypes.GetUserFetchFail:{
             return{
                 ...state,
-                GetUserFetch: {
-                    ...state.GetUserFetch,
+                userList: {
+                    ...state.userList,
                     loading:false,
                 }
 

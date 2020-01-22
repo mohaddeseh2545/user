@@ -1,6 +1,11 @@
 import React from 'react';
-import Axios from 'axios';
-import Users from './Users';
+import { UserAction } from '../../action/User/action';
+import { IUserState } from '../../action/User/model';
+import Slider from '../slider/Slider';
+import { IApplicationState } from '../../store/state';
+import { connect } from 'react-redux';
+
+type IProps= typeof UserAction & IUserState;
 
 export interface IUsers{
     [key: string]: any,
@@ -9,32 +14,21 @@ export interface IUsers{
         lastName:string,
         address:string,
         phone:string
-}
-interface IState{
-    users : IUsers[],
-    loading:boolean,
-  } 
+};
 
-type IProps={
-   
-}
-class Index extends React.Component<IProps,IState>{
-    constructor(props:IProps){
+class Index extends React.Component<IProps>{
+    constructor(props:any){
         super(props);
-        this.state={
-            users : [],
-            loading:false,
-          }
+        
     }
     async componentDidMount (){
-        this.setState({loading:true});
-        const res = await Axios.get('https://jsonbox.io/box_7cafe54ee82c7a1827bb/userCollection');
-        this.setState({loading:false, users: res.data});
+        
+        this.props.GetUser();
       }
     render(){
         return(
             <React.Fragment>
-               <Users loading={this.state.loading} users={this.state.users}/>
+              <Slider  users={this.props.userList.list}  />
             </React.Fragment>
         )
     }

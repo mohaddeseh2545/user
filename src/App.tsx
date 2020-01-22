@@ -1,12 +1,13 @@
 import React from 'react';
 import Modal from './components/layout/modal';
 import NavBar from './components/layout/NavBar';
-import Users from './components/users/Users';
 import Create from './components/users/Create';
+import { UserAction } from './action/User/action';
+import { IUserState } from './action/User/model';
 import Index from './components/users/Index';
-import Slider from './components/slider/Slider';
-import Axios from 'axios';
-import Button from './components/layout/Button';
+import { connect } from 'react-redux';
+import { IApplicationState } from './store/state';
+
 const fakeList = [
   { id:0,name:'ali',family:'hasani'},
   { id:1,name:'reza',family:'ghanbari'},
@@ -17,9 +18,7 @@ const fakeList = [
   { id:6,name:'nahid', family:'rashidi'},
 ];
 
-type  IProps ={
-
-};
+type  IProps = typeof UserAction & IUserState;
 interface IUsers{
   [key: string]: any,
       code:string,
@@ -28,19 +27,12 @@ interface IUsers{
       address:string,
       phone:string
 }
-interface IState{
-  users:IUsers[],
-  toggle:boolean,
-}
-class App extends React.Component <IProps,IState> {
 
-  constructor(props:IProps){
+class App extends React.Component <IProps> {
+
+  constructor(props:any){
     super(props);
-   this.state={
-     users:[],
-     toggle:false,
-   }
-  
+ 
   }
  private onCancel=()=>{
    this.setState({toggle:false})
@@ -51,8 +43,8 @@ class App extends React.Component <IProps,IState> {
 
  }
   async componentDidMount(){
-    const res = await Axios.get('https://jsonbox.io/box_7cafe54ee82c7a1827bb/userCollection');
-    this.setState({users : res.data});
+    this.props.GetUser();
+   
   }
   render(){
     return (
@@ -60,20 +52,24 @@ class App extends React.Component <IProps,IState> {
         <NavBar title="Navbar" icon="fa fa-github" />
         <div className="container">
           <div style={{margin:'10px',textAlign:'center'}}>
-          <button onClick={()=>{this.setState({toggle:true})}} >ایجاد کاربر</button>
+          <button 
+            onClick={()=>{this.setState({toggle:true})}} 
+          >
+            ایجاد کاربر
+          </button>
           </div>
           
           <Modal
             onOk={this.onOk}
             onCancel={this.onCancel}
-            toggle={this.state.toggle}
+            toggle={this.props.userList.loading}
             title="ایجاد کاربر"
           >
+           
           </Modal>
           <Create />
-          <Slider  users={this.state.users} />
-          {/* <Index  /> */}
-          {/* <button onClick={() => alert('open modal')}>Open Modal</button> */}
+          {/* <Slider  users={this.props.userList.list} /> */}
+          <Index {...this.props}  /> 
           <Modal />
         </div>
   
@@ -84,4 +80,8 @@ class App extends React.Component <IProps,IState> {
  
 }
 
-export default App;
+//  export default App;
+ export default connect(
+  (state: IApplicationState) => state.user,
+  UserAction,
+)(App);

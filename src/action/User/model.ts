@@ -8,7 +8,7 @@ export interface IUserState{
         open: boolean;
 
     }
-    GetUserFetch: {
+    userList: {
         loading:boolean;
         list:any[];
     }
