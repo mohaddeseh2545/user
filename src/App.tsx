@@ -68,7 +68,7 @@ class App extends React.Component<IProps> {
             toggle={this.props.CreateUser.openModal}
             title="ایجاد کاربر"
           >
-            <Create2 m={(data:any)=>this.onOk(data)} />
+            <Create2  />
           </Modal>
 
 
