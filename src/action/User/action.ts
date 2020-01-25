@@ -11,6 +11,7 @@ export const UserAction = {
         const res = await Axios.post('https://jsonbox.io/box_7cafe54ee82c7a1827bb/userCollection',data);
         if(res.data.ok){
             dispatch({type: UserActionTypes.CreateUserSuccess});
+            UserAction.toggleUserCreateModal(false)(dispatch, getState);
             
         }else{
             dispatch({type: UserActionTypes.CreateUserFail});

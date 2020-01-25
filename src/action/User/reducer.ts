@@ -20,7 +20,6 @@ export const UserReducer: Reducer<IUserState> = (state: IUserState = unloadedSta
                 ...state,
                 CreateUser :{
                     ...state.CreateUser,
-                    loading: true,
                     openModal:action.open,
                 }
 
@@ -33,7 +32,6 @@ export const UserReducer: Reducer<IUserState> = (state: IUserState = unloadedSta
                 CreateUser :{
                     ...state.CreateUser,
                     loading: true,
-                    openModal:true,
                 }
 
             }as IUserState
@@ -45,7 +43,6 @@ export const UserReducer: Reducer<IUserState> = (state: IUserState = unloadedSta
                 CreateUser :{
                     ...state.CreateUser,
                     loading: false,
-                    openModal:false,
                 }
 
             }as IUserState
