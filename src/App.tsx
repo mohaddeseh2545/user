@@ -58,6 +58,7 @@ class App extends React.Component <IProps> {
           <div style={{margin:'10px',textAlign:'center'}}>
           <button 
             onClick={()=>this.props.toggleUserCreateModal(true)}
+            className="createUser-btn"
           >
             ایجاد کاربر
           </button>

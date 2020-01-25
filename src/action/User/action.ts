@@ -18,7 +18,6 @@ export const UserAction = {
      },
 
      toggleUserCreateModal : (open:boolean): AppAction<KnownAction> => async (dispatch, getState) =>{
-         console.log('open',open);
          dispatch({type: UserActionTypes.CreateUserOnModal, open});
      },
      GetUserData:(): AppAction<KnownAction> => async (dispatch , getState) =>{
