@@ -5,33 +5,33 @@ import Slider from '../slider/Slider';
 import Spinner from '../layout/spinner/Spinner';
 
 
-type IProps= typeof UserAction & IUserState;
+type IProps = typeof UserAction & IUserState;
 
-export interface IUsers{
+export interface IUsers {
     [key: string]: any,
-        code:string,
-        firstName:string,
-        lastName:string,
-        address:string,
-        phone:string
+    code: string,
+    firstName: string,
+    lastName: string,
+    address: string,
+    phone: string
 };
 
 class Index extends React.Component<IProps>{
-    constructor(props:any){
+    constructor(props: any) {
         super(props);
-        
+
     }
-    async componentDidMount (){
-        
+    async componentDidMount() {
+
         this.props.GetUserData();
-      }
-    render(){
-        if(this.props.userList.loading){
+    }
+    render() {
+        if (this.props.userList.loading) {
             return <Spinner />
         }
-        return(
+        return (
             <React.Fragment>
-              <Slider  users={this.props.userList.list}  />
+                <Slider users={this.props.userList.list} />
             </React.Fragment>
         )
     }
