@@ -2,6 +2,7 @@ import React from 'react';
 import { UserAction } from '../../action/User/action';
 import { IUserState } from '../../action/User/model';
 import Slider from '../slider/Slider';
+import Spinner from '../layout/spinner/Spinner';
 
 
 type IProps= typeof UserAction & IUserState;
@@ -25,6 +26,9 @@ class Index extends React.Component<IProps>{
         this.props.GetUserData();
       }
     render(){
+        if(this.props.userList.loading){
+            return <Spinner />
+        }
         return(
             <React.Fragment>
               <Slider  users={this.props.userList.list}  />
