@@ -1,14 +1,12 @@
 import React from 'react';
-import Modal from './components/layout/modal';
+// import Modal from './components/layout/modal';
 import NavBar from './components/layout/NavBar';
-import Create from './components/users/Create';
-import Create2 from './components/users/Create2';
 import { UserAction } from './action/User/action';
 import { IUserState } from './action/User/model';
-import Index from './components/users/Index';
 import { connect } from 'react-redux';
 import { IApplicationState } from './store/state';
-
+import Dashboard from './components/Dashboard/index';
+import SideBar from './components/layout/SideBar';
 const fakeList = [
   { id: 0, name: 'ali', family: 'hasani' },
   { id: 1, name: 'reza', family: 'ghanbari' },
@@ -34,48 +32,42 @@ class App extends React.Component<IProps> {
   constructor(props: any) {
     super(props);
   }
-  private onCancel = () => {
-    //  this.setState({toggle:false})
-    //  this.props.CreateUser.openModal;
-    this.props.toggleUserCreateModal(false);
-  }
-  private onOk = (data:any) => {
-    this.props.sendCreateUser(data)
+  // private onCancel = () => {
 
-  }
-  async componentDidMount() {
-    this.props.GetUserData();
+  //   this.props.toggleUserCreateModal(false);
+  // }
+  // private onOk = (data:any) => {
+  //   this.props.sendCreateUser(data)
 
-  }
+  // }
+
   render() {
-    console.log(this.props.CreateUser)
     return (
       <div className="App">
-        <NavBar title="Navbar" icon="fa fa-github" />
+        {/* <NavBar title="Navbar" icon="fa fa-github" /> */}
+        <NavBar />
+        <SideBar />
         <div className="container">
-          <div style={{ margin: '10px', textAlign: 'center' }}>
+          {/* <div style={{ margin: '10px', textAlign: 'center' }}>
             <button
               onClick={() => this.props.toggleUserCreateModal(true)}
               className="createUser-btn"
             >
               ایجاد کاربر
           </button>
-          </div>
+          </div> */}
 
-          <Modal
+
+          {/* <Modal
             onOk={this.onOk}
             onCancel={this.onCancel}
             toggle={this.props.CreateUser.openModal}
             title="ایجاد کاربر"
           >
-            {/* <Create2  /> */}
-          </Modal>
+            <Create2  />
+          </Modal> */}
 
-
-          <Create />
-          {/* <Slider  users={this.props.userList.list} /> */}
-          <Index {...this.props} />
-          <Modal />
+          <Dashboard {...this.props} />
         </div>
 
 
@@ -85,7 +77,7 @@ class App extends React.Component<IProps> {
 
 }
 
-//  export default App;
+  // export default App;
 export default connect(
   (state: IApplicationState) => state.user,
   UserAction,

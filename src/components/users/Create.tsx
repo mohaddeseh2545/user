@@ -42,7 +42,7 @@ interface IState{
 
     }
 }
-class Create extends React.Component<IProps,IState>{
+class UserCreate extends React.Component<IProps,IState>{
 
     constructor(props:any){
         super(props);
@@ -235,4 +235,4 @@ class Create extends React.Component<IProps,IState>{
 export default connect(
     (state: IApplicationState) => state.user,
     UserAction,
-)(Create);
+)(UserCreate);

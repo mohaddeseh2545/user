@@ -3,6 +3,8 @@ import { UserAction } from '../../action/User/action';
 import { IUserState } from '../../action/User/model';
 import Slider from '../slider/Slider';
 import Spinner from '../layout/spinner/Spinner';
+import { connect } from 'react-redux';
+import { IApplicationState } from '../../store/state';
 
 
 type IProps = typeof UserAction & IUserState;
@@ -16,7 +18,7 @@ export interface IUsers {
     phone: string
 };
 
-class Index extends React.Component<IProps>{
+class GetUser extends React.Component<IProps>{
     constructor(props: any) {
         super(props);
 
@@ -36,4 +38,8 @@ class Index extends React.Component<IProps>{
         )
     }
 }
-export default Index;
+
+export default connect(
+    (state: IApplicationState) => state.user,
+    UserAction,
+)(GetUser);
