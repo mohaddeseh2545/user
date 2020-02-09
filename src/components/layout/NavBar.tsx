@@ -11,6 +11,9 @@ class NavBar extends React.Component<any,any>{
         return(
             <React.Fragment>
                 <nav className="navBar">
+                    {/* <div className="logo">
+
+                    </div> */}
 {/*                   
                     <h1>
                         <i className={this.props.icon} style={{paddingRight: '5px'}} ></i>

@@ -52,11 +52,12 @@ class App extends React.Component<IProps> {
         <div className="main-container">
           
             <SideBar />
-            <LeftSideBar />
+            
           <div className="wrapperContainer">
 
             <Dashboard {...this.props} />
           </div>
+          {/* <LeftSideBar /> */}
           {/* <div style={{ margin: '10px', textAlign: 'center' }}>
             <button
               onClick={() => this.props.toggleUserCreateModal(true)}

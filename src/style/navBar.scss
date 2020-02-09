@@ -1,4 +1,10 @@
 .navBar{
-    background-color: #348f6c;
-    padding: 10px;
+    background-color: #86b3cf;
+    height: 60px;
+    display: flex;
+    flex-direction: row-reverse;
+    .logo{
+        width: 270px;
+        background-color: #7aa3bc;
+    }
 }
