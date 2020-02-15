@@ -9,6 +9,7 @@ import Dashboard from './components/Dashboard/index';
 import SideBar from './components/layout/SideBar';
 import LeftSideBar from './components/layout/LeftSideBar';
 import Footer from './components/layout/Footer';
+import Alert from './components/layout/Alert';
 const fakeList = [
   { id: 0, name: 'ali', family: 'hasani' },
   { id: 1, name: 'reza', family: 'ghanbari' },
@@ -34,19 +35,12 @@ class App extends React.Component<IProps> {
   constructor(props: any) {
     super(props);
   }
-  // private onCancel = () => {
-
-  //   this.props.toggleUserCreateModal(false);
-  // }
-  // private onOk = (data:any) => {
-  //   this.props.sendCreateUser(data)
-
-  // }
+ 
 
   render() {
     return (
       <div className="App">
-        {/* <NavBar title="Navbar" icon="fa fa-github" /> */}
+        
         <NavBar />
 
         <div className="main-container">
@@ -54,29 +48,10 @@ class App extends React.Component<IProps> {
             <SideBar />
             
           <div className="wrapperContainer">
-
+            <Alert />
             <Dashboard {...this.props} />
           </div>
-          {/* <LeftSideBar /> */}
-          {/* <div style={{ margin: '10px', textAlign: 'center' }}>
-            <button
-              onClick={() => this.props.toggleUserCreateModal(true)}
-              className="createUser-btn"
-            >
-              ایجاد کاربر
-          </button>
-          </div> */}
-
-
-          {/* <Modal
-            onOk={this.onOk}
-            onCancel={this.onCancel}
-            toggle={this.props.CreateUser.openModal}
-            title="ایجاد کاربر"
-          >
-            <Create2  />
-          </Modal> */}
-
+          
         </div>
         <Footer />
 
@@ -87,7 +62,6 @@ class App extends React.Component<IProps> {
 
 }
 
-// export default App;
 export default connect(
   (state: IApplicationState) => state.user,
   UserAction,

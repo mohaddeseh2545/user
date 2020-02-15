@@ -17,6 +17,9 @@ class Search extends React.Component<IProps,IState>{
     }
     onSubmit =(e:any)=>{
         e.preventDefault();
+        if(this.state.text === ''){
+            alert('nothing')
+        }
     }
     changeHandler=(e:any)=>{
         this.setState({ [e.target.name] : e.target.value });
@@ -24,7 +27,7 @@ class Search extends React.Component<IProps,IState>{
     render(){
         return(
             <React.Fragment>
-                <form onSubmit={()=>this.onSubmit}>
+                <form onSubmit={this.onSubmit}>
                     <input 
                         className="searchInput"
                         type="text"
@@ -34,9 +37,10 @@ class Search extends React.Component<IProps,IState>{
                         placeholder="جستجو ..."
                     />
                     <input
-                    className="btnSearch"
-                    type="submit"
-                    value="جستجو"
+                        className="btnSearch"
+                        type="submit"
+                        value="جستجو"
+                        
                     />
                 </form>
                 

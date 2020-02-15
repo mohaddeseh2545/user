@@ -9,7 +9,7 @@ export class SideBar extends React.Component {
             <div className="sideBar">
                 <ul className="main-menu">
                     <li className="sub-menu">
-                        <span >
+                      
                             <Link to="/GetUser">
                             نمایش کاربران
                             </Link>
@@ -17,27 +17,27 @@ export class SideBar extends React.Component {
                             <i>
                                 <FontAwesomeIcon icon={faUsers} size="1x" className="padding-left-10" />
                             </i>
-                        </span>
+                      
                     </li>
                     <li className="sub-menu">
-                        <span>
+                      
                             <Link to="/CreateUser" >
                                 ایجاد کاربر
                             </Link>
                             <i>
                                 <FontAwesomeIcon icon={faUser} size="1x" className="padding-left-10" />
                             </i>
-                        </span>                        
+                                               
                     </li>
                     <li  className="sub-menu">
-                        <span>
+                        
                             <Link to="/Search" >
                             جستجوی کاربر
                             </Link>
                             <i>
                                 <FontAwesomeIcon icon={faSearch} size="1x" className="padding-left-10" />
                             </i>
-                        </span>                        
+                                                
                     </li>
                 </ul>
             </div>
