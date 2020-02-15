@@ -1,0 +1,23 @@
+.searchInput{
+    width: 69%;
+    text-align: right;
+    margin: 20px auto;
+    display: block;
+    height: 25px;
+    direction: rtl;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+.searchInput:focus{
+    border-color: #0DA6FA;
+}
+.btnSearch{
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+    background-color: #333;;
+    color:white;
+    border: 1px solid #333;;
+    height: 40px;
+    cursor: pointer;
+}
