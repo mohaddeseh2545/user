@@ -7,9 +7,7 @@ import { connect } from 'react-redux';
 import { IApplicationState } from './store/state';
 import Dashboard from './components/Dashboard/index';
 import SideBar from './components/layout/SideBar';
-import LeftSideBar from './components/layout/LeftSideBar';
 import Footer from './components/layout/Footer';
-import Alert from './components/layout/Alert';
 const fakeList = [
   { id: 0, name: 'ali', family: 'hasani' },
   { id: 1, name: 'reza', family: 'ghanbari' },
@@ -20,7 +18,8 @@ const fakeList = [
   { id: 6, name: 'nahid', family: 'rashidi' },
 ];
 
-type IProps = typeof UserAction & IUserState;
+
+type IProps = typeof UserAction & IUserState ;
 interface IUsers {
   [key: string]: any,
   code: string,
@@ -30,36 +29,28 @@ interface IUsers {
   phone: string
 }
 
-class App extends React.Component<IProps> {
+
+class App extends React.Component< IProps > {
 
   constructor(props: any) {
     super(props);
+   
   }
  
-
   render() {
     return (
-      <div className="App">
-        
+      <div className="App">       
         <NavBar />
-
-        <div className="main-container">
-          
-            <SideBar />
-            
+        <div className="main-container">          
+            <SideBar />           
           <div className="wrapperContainer">
-            <Alert />
             <Dashboard {...this.props} />
-          </div>
-          
+          </div>         
         </div>
         <Footer />
-
-
       </div>
     );
   }
-
 }
 
 export default connect(
