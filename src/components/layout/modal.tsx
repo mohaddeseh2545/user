@@ -27,7 +27,9 @@ class Modal extends React.Component<any, any>{
                         </div>                       
                         <div className="footer-modal">
                             <button  onClick={this.props.onCancel} className="modal-cancel">لغو</button>
+                            {this.props.onOk ? 
                             <button onClick={this.props.onOk} className="modal-ok">ارسال</button>
+                            : null}
 
                         </div>
                     

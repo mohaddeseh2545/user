@@ -8,14 +8,18 @@
     border-radius: 5px;
     z-index: 1001;
     background-color: #fff;
-    transition: all 200ms ease-in;
+    transition: all 250ms ease-in-out;
     overflow: hidden;
     box-shadow: -2px 3px 3px #ccc;
-    transform: translateX(-50%) translateY(-50%);
+    // transform: translateX(0%) translateY(0%);
+    opacity: 0.5;
 }
 .modal.modalActive{
     width: 40%;
     max-height: 400px;
+    opacity: 1;
+    transform: translateX(-50%) translateY(-50%);
+
 }
 
 

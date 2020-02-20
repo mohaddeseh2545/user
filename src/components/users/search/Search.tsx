@@ -11,13 +11,15 @@ interface IState{
 }
 type IProps = typeof UserAction & IUserState
 class Search extends React.Component<IProps,IState>{
-    constructor(props:IProps){
+    constructor (props: any ){
        super(props);
         this.state = {
             text:"",
             alert: {msg: '', type: ''},
         }
     }
+ 
+    
     // submit
     onSubmit =(e:any)=>{
         e.preventDefault();
@@ -25,7 +27,7 @@ class Search extends React.Component<IProps,IState>{
             this.setState({ alert: { msg: 'کادر جستجو خالی می باشد' , type: 'light'} });
             setTimeout( ()=>{ this.setState({alert :{msg: '', type: ''}})} , 5000);
         }else{
-            this.props.GetUserData();
+          
         }
     }
     // change Handler
@@ -33,9 +35,9 @@ class Search extends React.Component<IProps,IState>{
         this.setState({ [e.target.name] : e.target.value });
     }
     // search users
-    searchUsers = async (text: string) =>{
-        S
-    }
+    // searchUsers = async (text: string) =>{
+        
+    // }
     render(){
         return(
             <React.Fragment>

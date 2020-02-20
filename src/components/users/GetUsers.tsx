@@ -20,18 +20,17 @@ class GetUsers extends React.Component<IProps>{
             return <Spinner />
         }
         return(
-            <React.Fragment>
-                {this.props.userList.list.map((user,index)=>{
-                    <div className="card-user" key={index}>
-                        <p>{user.firstName}</p>
-                        <p>{user.lastName}</p>
-
-                    </div>
+            <div className="content-getUser">
+                {this.props.userList.list.map((user,index)=> {                                       
+                      return  <div className="card-user" key={index}>
+                            <p>{user.firstName}</p>
+                            <p>{user.lastName}</p>
+    
+                        </div>                   
+                })
                 }
-
-                )}
-            </React.Fragment>
-        )
+            </div>
+        );
     }
 }
 export default connect(
