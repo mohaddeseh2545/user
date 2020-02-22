@@ -18,39 +18,36 @@ class CreateFrom extends React.Component<any, IState>{
     }
     addOutput(){
         const x = this.state.list;
-        x.push( {id: x.length , name:'' , amount:''});
+        const _id = new Date().getTime();
+        x.push( {id: _id , name:'' , amount:''});
         this.setState({ list : x});
     }
-    cutOutput(index : number){
+    cutOutput(_id : number){
         const x = this.state.list.filter( (l: Ioutput) => {
-           return l.id !== index
+           return l.id != _id
         });
         this.setState({ list: x});
+      
     }
     render() {
         return (
             <Form >
-                
                 {this.state.list.map((output, index) => {
                     console.log('index', index);
-                   return  <div key={index}>
+                   return  <div key={output.id}>
                         <Input
                             placeholder="نام"
                         />
                         <Input
                             placeholder="مبلغ"
                         />
-                        <Input 
-                            type="button" 
-                            value="-" 
-                            onClick={ () => this.cutOutput(index)}
-                        />
-                    
+                             <Input 
+                             type="button" 
+                             value="-" 
+                             onClick={ () => this.cutOutput(output.id)}
+                         />                      
                     </div>
-                    
-                
                 }
-
                 )}
                 <div className="add-user-output" >
                     <span 
